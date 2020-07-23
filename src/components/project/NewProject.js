@@ -2,15 +2,15 @@ import React from 'react'
 
 import Header from '../commons/Header'
 
-import './Project.css'
+import './NewProject.css'
 
-const Project = (props) => {
+const NewProject = (props) => {
   return (
     <div>
       <Header location={props.location.pathname} />
-      Here is the project page
+      Here is the NewProject page
     </div>
   )
 }
 
-export default Project
+export default NewProject
