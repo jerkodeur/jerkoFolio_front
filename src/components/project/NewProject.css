@@ -1,0 +1,75 @@
+.cont-new-project {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  text-align: center;
+  margin-top: 1em;
+  width: 85%;
+}
+
+.cont-new-project form {
+  width: 100%;
+}
+
+.cont-new-project .flex-input {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.cont-new-project ul {
+  margin-top: .5em;
+  margin-bottom: .5em;
+  width: 100%;
+}
+
+.cont-new-project li {
+  color: rgb(255, 94, 0);
+  font-weight: 500;
+  list-style-type: none;
+  display: inline-block;
+  padding: .35em;
+  border: 1px inset rgb(255, 94, 0);
+  border-radius: .5em;
+  margin: .5em;
+  cursor: pointer;
+}
+
+.cont-new-project label {
+  margin-bottom: .25em;
+  color: #FFF;
+}
+
+.cont-new-project input, .cont-new-project textarea {
+  padding: .5em;
+  margin: auto;
+  text-align: center;
+  border: 5px double #000;
+  border-radius: 3px;
+  width: 90%;
+  min-width: 15em;
+  max-width: 50em;
+  background-color: #d5d4dd;
+}
+
+.cont-new-project button {
+  padding: 1em;
+  border-radius: 5px;
+  border: 5px double #000;
+  font-weight: bold;
+  margin-bottom: 2em;
+  margin-top: 1em;
+  background-color: #d5d4dd;
+}
+
+.cont-new-project ul .selected {
+  color: rgb(246, 133, 4);
+  background-color: red;
+  font-weight: bold;
+}
+
+.cont-new-project .required {
+  color: rgb(246, 133, 4);
+}

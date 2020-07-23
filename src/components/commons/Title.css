@@ -1,0 +1,17 @@
+.cont-title {}
+
+.cont-title p {
+  color: #d5d4dd;
+  font-size: 1.5em;
+  font-weight: bold;
+  text-shadow: 2px 2px red, -2px -2px black;
+  letter-spacing: .1em;
+  margin-left: .5em;
+}
+
+.p-title span {
+  font-size: 2em;
+  font-weight: bold;
+  color: red;
+  text-shadow: -4px -4px black, 2px 2px 5px rgb(182, 79, 31);
+}
