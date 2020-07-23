@@ -1,0 +1,23 @@
+.cont-nav {
+  text-align: right;
+  margin-right: 1em;
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.cont-nav nav a {
+  color: #d5d4dd;
+  text-decoration: none;
+}
+
+.cont-nav nav .active {
+  border-bottom: 5px red solid;
+  border-radius: 10%;
+  padding-bottom: .25em;
+}
+  .sep {
+    margin: .5em;
+    font-size: 1.5em;
+    color: red;
+    text-shadow: -3px -3px black, 1px 1px 5px rgb(182, 79, 31);
+  }

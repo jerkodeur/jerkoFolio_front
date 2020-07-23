@@ -1,0 +1,6 @@
+.cont-header hr {
+  width: 100%;
+  margin: .5em .5em .5em 1em;
+  border-top: 5px red solid;
+  border-radius: 50%;
+}
