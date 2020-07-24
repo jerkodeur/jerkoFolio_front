@@ -54,7 +54,7 @@
   background-color: #d5d4dd;
 }
 
-.cont-new-project button {
+/* .cont-new-project button {
   padding: 1em;
   border-radius: 5px;
   border: 5px double #000;
@@ -62,7 +62,7 @@
   margin-bottom: 2em;
   margin-top: 1em;
   background-color: #d5d4dd;
-}
+} */
 
 .cont-new-project ul .selected {
   color: rgb(246, 133, 4);
@@ -72,4 +72,13 @@
 
 .cont-new-project .required {
   color: rgb(246, 133, 4);
+}
+
+.cont-new-project .button {
+  width: 0;
+  padding: 1em;
+  border-style: ridge;
+  border-color:red;
+  border-radius: 10%;
+  font-weight: bold;
 }

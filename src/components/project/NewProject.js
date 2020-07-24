@@ -1,9 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import Axios from 'axios'
+import DatePicker from "react-datepicker";
 
 import Header from '../commons/Header'
 
 import './NewProject.css'
-import Axios from 'axios'
+
+import "react-datepicker/dist/react-datepicker.css"
 
 const url = process.env.REACT_APP_API_URL
 
@@ -15,7 +18,7 @@ const NewProject = (props) => {
     image: '',
     url_github: '',
     url_test: '',
-    date: ''
+    date: '',
   })
 
   const [selectedTechnos, setSelectedTechnos] = useState([])
@@ -24,8 +27,9 @@ const NewProject = (props) => {
 
   useEffect(() => {
     fetchTechnos()
+    setFormData({ ...formData, date: new Date() })
     return () => fetchTechnos()
-  },[])
+  }, [])
 
   const fetchTechnos = () => {
     Axios.get(`${url}/technos`)
@@ -35,13 +39,13 @@ const NewProject = (props) => {
   const handleChange = (e) => {
     const value = e.target.value
     const id = e.target.id
-    setFormData({...formData, [id]: value})
+    setFormData({ ...formData, [id]: value })
   }
 
   const handleTechnos = (e) => {
     const tempId = e.target.id
     const pos = selectedTechnos.indexOf(tempId)
-    if ( pos !== -1) {
+    if (pos !== -1) {
       selectedTechnos.splice(pos, 1)
     } else {
       selectedTechnos.push(tempId)
@@ -75,12 +79,31 @@ const NewProject = (props) => {
       <div className='cont-new-project'>
         <form onSubmit={submitForm} >
           <div className='flex-input'>
-          <label htmlFor='title'>Titre <span className='required'>*</span></label>
-          <input type='text' id='title' name='title' onChange={handleChange} required />
+            <label htmlFor='title'>Titre <span className='required'>*</span></label>
+            <input type='text' id='title' name='title' onChange={handleChange} required />
           </div>
-          <div className='flex-input'>
-            <label htmlFor='date'>Date / Période <span className='required'>*</span></label>
-            <input type='text' id='date' name='date' onChange={handleChange} required/>
+          <div className='flex-input calendar'>
+            <label>Mois du projet</label>
+            <DatePicker
+              selected={formData.date}
+              onChange={(date) => setFormData({ ...formData, date: date })}
+              maxDate={new Date()}
+              dateFormat="MM/yyyy"
+              showMonthYearPicker
+              popperClassName="some-custom-class"
+              popperPlacement="bottom-center"
+              popperModifiers={{
+                offset: {
+                  enabled: true,
+                  offset: "5px, 10px"
+                },
+                preventOverflow: {
+                  enabled: true,
+                  escapeWithReference: false,
+                  boundariesElement: "viewport"
+                }
+              }}
+            />
           </div>
           <div className='flex-input'>
             <label htmlFor='description'>Description <span className='required'>*</span></label>
@@ -91,11 +114,11 @@ const NewProject = (props) => {
             <input type='text' id='image' name='image' onChange={handleChange} required />
           </div>
           <div className='flex-input'>
-          <label htmlFor='url_github'>Lien vers le dépôt Github</label>
+            <label htmlFor='url_github'>Lien vers le dépôt Github</label>
             <input type='text' id='url_github' name='giturl_githubhub' onChange={handleChange} />
           </div>
           <div className='flex-input'>
-          <label htmlFor='url_test'>Lien vers le site de l'application</label>
+            <label htmlFor='url_test'>Lien vers le site de l'application</label>
             <input type='text' id='url_test' name='url_test' onChange={handleChange} />
           </div>
           <ul>
@@ -103,7 +126,7 @@ const NewProject = (props) => {
               listTechnos && listTechnos.map((techno, id) => <li key={id} id={techno.id} onClick={handleTechnos} className={handleClass(techno.id)}>{techno.name}</li>)
             }
           </ul>
-          <button onClick={handleClick} >AJOUTER</button>
+          <input type='button'  className='button' onClick={handleClick} value='AJOUTER' />
         </form>
       </div>
     </>
