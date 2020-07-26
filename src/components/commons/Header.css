@@ -12,6 +12,11 @@
   height: 4em;
 }
 
+.flex-header .contact img {
+  padding: .5em;
+  margin-bottom: .5em;
+}
+
 .cont-header .more-button{
   margin-right: .25em;
   font-size: 4em;

@@ -20,7 +20,7 @@ const Nav = (props) => {
         return (
           <nav>
             <NavLink exact to='/'>Accueil</NavLink>
-            <span className='sep'> § </span>
+            <span className='sep'> | </span>
             <NavLink to='/project'>Projets</NavLink>
           </nav>
         )

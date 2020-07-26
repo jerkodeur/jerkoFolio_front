@@ -71,6 +71,7 @@
   border-bottom: 5px double red;
   margin-left: 1em;
   margin-bottom: -.5em;
+  text-shadow: 5px 5px 5px #000;
 }
 
 .profil-description .presentation {
@@ -84,9 +85,8 @@
 }
 
 .cont-home .profil-title {
-  color: rgb(146, 110, 97);
   color: rgb(175, 141, 128);
-  text-shadow: 5px 5px 10px #000, -1px -1px 3px #d18664;
+  text-shadow: 5px 5px 10px #000, -2px -2px 5px #d18664;
   margin-left: 1em;
   margin-bottom: 1em;
 }
@@ -94,7 +94,6 @@
 @media screen and (min-width: 960px) {
   .cont-home .flex-home {
     flex-direction: row;
-    justify-content: space-around;
   }
   .cont-home {
     margin-left: 5em;
@@ -102,35 +101,15 @@
   }
   .cont-home .profil-description {
     width: 75%;
-  }
-  .flex-profil .div-infos {
-    border: 3px double red;
-    border-radius: 1em;
-    padding: 1em;
-    background-color: rgb(146, 110, 97);
-    opacity: 50%;
+    font-size: 1.25em;
   }
   .cont-home .flex-profil {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
     margin: auto;
-    text-align: right;
   }
   .flex-profil label {
     margin-top: 2em;
-    color: red;
-    font-weight: bold;
-  }
-  .profil-description h1 {
-    color: red;
-    font-size: 2em;
-    border-bottom: 5px double red;
   }
   .cont-home .profil-title {
-    color: rgb(175, 141, 128);
-    text-shadow: 5px 5px 10px #000, -1px -1px 3px #d18664;
     margin-left: 1em;
   }
 }
