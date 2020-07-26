@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import Proptypes from 'prop-types'
 
 import Nav from './Nav'
 import Title from './Title'
@@ -33,6 +34,10 @@ const Header = (props) => {
       <Nav location={location} />
     </div>
   )
+}
+
+Header.propTypes = {
+  location: Proptypes.string.isRequired
 }
 
 export default Header
