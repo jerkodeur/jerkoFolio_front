@@ -10,7 +10,7 @@ import Header from '../commons/Header'
 
 import './Project.css'
 
-import Edit from '../../images/modify.png'
+import Edit from '../../images/modify.png' //TODO to come up
 import Www from '../../images/www.svg'
 import Github from '../../images/github.png'
 
@@ -70,7 +70,7 @@ const Project = (props) => {
                 <div className={side}>
                   <div className='infos-project'>
                     {side === 'left' &&
-                      <a href='#' title='Modifier le contenu du projet'>Modifier</a>
+                      <a href='#' title='Modifier le contenu du projet'>Modifier</a> //TODO To come up
                     }
                     <div className='title'>
                       {side === 'left' &&
@@ -99,7 +99,7 @@ const Project = (props) => {
                       {side === 'right' && <h1>{title}</h1>}
                     </div>
                           {side === 'right' &&
-                            <a href='#' title='Modifier le contenu du projet'>Modifier</a>
+                            <a href='#' title='Modifier le contenu du projet'>Modifier</a> //TODO to come up
                           }
                   </div>
                   <div className={side === 'left' ? 'cont-screenshot-Tleft' : 'cont-screenshot-Tright'}>

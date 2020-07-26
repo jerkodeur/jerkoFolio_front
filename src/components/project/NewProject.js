@@ -13,7 +13,6 @@ import False from '../../images/false.png'
 
 
 const url = process.env.REACT_APP_API_URL
-const verifUrl = /^ (?: http(s) ?: \/\/)?[\w.-]+(?:\.[\w.-]+)+[\w\-._~:/?#[\]@!$&'()*+,;=.]+$/
 
 const NewProject = (props) => {
 
@@ -30,7 +29,7 @@ const NewProject = (props) => {
   })
 
   // handle techno list
-  const [selectedTechnos, setSelectedTechnos] = useState([])
+  const [selectedTechnos] = useState([])
   const [listTechnos, setListTechnos] = useState()
 
   // handle Errors
@@ -127,7 +126,7 @@ const NewProject = (props) => {
     datasToBack.project = formData
     datasToBack.techno = selectedTechnos
     Axios.post(`${url}/projects`, datasToBack)
-      .then(res => res.status === 201 && <Redirect to='/projects' />)
+      .then(res => res.status === 201 && <Redirect to='/project' />)
       .catch(err => {
         const errStatus = err.response.status
         const errMessage = err.response.data

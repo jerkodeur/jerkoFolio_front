@@ -123,6 +123,7 @@
 
 .cont-display-projects .cont-description {
   align-items: baseline;
+  margin-top: 2em;
 }
 
 .cont-display-projects .cont-description img {
@@ -194,19 +195,17 @@
   }
   .title .date-left {
     margin-top: 1em;
+    margin-left: .25em;
   }
   .title .date-right {
     margin-top: 1em;
+    margin-right: .25em;
   }
 }
 
 @media screen and (min-width: 1150px) {
-  .cont-display-projects .title {
-    width: 95%;
-  }
   .cont-display-projects [class^="cont-screenshot"] .project-img {
     width: 95%;
-    max-width: 100%;
     height: 25em;
   }
   .cont-display-projects .flex-gen-project {
