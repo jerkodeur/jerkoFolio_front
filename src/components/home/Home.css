@@ -1,0 +1,136 @@
+.cont-home {
+  width: 100%;
+  margin-top: 2em;
+}
+
+.cont-home .flex-home {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  justify-content: space-around;
+}
+
+.cont-home .profil-photo {
+  width: 15em;
+  height: 15em;
+  border-radius: 100%;
+  opacity: 75%;
+  box-shadow: 10px 10px 20px rgb(146, 110, 97), -10px -10px 20px rgb(146, 110, 97);
+}
+
+.cont-home .flex-profil {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: right;
+}
+
+.flex-profil label {
+  margin-top: 1em;
+  color: red;
+  font-weight: bold;
+  align-self: flex-end;
+  margin-right: .5em;
+  margin-bottom: .25em;
+}
+
+.flex-profil .div-infos {
+  border: 3px double red;
+  border-radius: 1em;
+  padding: 1em;
+  background-color: rgb(146, 110, 97);
+  opacity: 50%;
+  align-self: flex-end;
+}
+
+.div-infos .flex-ident {
+  display: flex;
+  font-display: column;
+  text-align: right;
+  justify-content: space-between;
+  width: 8em;
+}
+
+.div-infos .cat {
+  color: #000;
+  font-weight: 500;
+  text-align: justify;
+}
+
+.cont-home .profil-description {
+  width: 100%;
+  margin: auto;
+  color: #d18664;
+  margin-bottom: 1em;
+}
+
+.profil-description h1 {
+  color: red;
+  font-size: 2em;
+  border-bottom: 5px double red;
+  margin-left: 1em;
+  margin-bottom: -.5em;
+}
+
+.profil-description .presentation {
+  margin-top: 2em;
+  margin-left: 2em;
+  text-align: justify;
+}
+
+.presentation a {
+  color: red;
+}
+
+.cont-home .profil-title {
+  color: rgb(146, 110, 97);
+  color: rgb(175, 141, 128);
+  text-shadow: 5px 5px 10px #000, -1px -1px 3px #d18664;
+  margin-left: 1em;
+  margin-bottom: 1em;
+}
+
+@media screen and (min-width: 960px) {
+  .cont-home .flex-home {
+    flex-direction: row;
+    justify-content: space-around;
+  }
+  .cont-home {
+    margin-left: 5em;
+    margin-top: 5em;
+  }
+  .cont-home .profil-description {
+    width: 75%;
+  }
+  .flex-profil .div-infos {
+    border: 3px double red;
+    border-radius: 1em;
+    padding: 1em;
+    background-color: rgb(146, 110, 97);
+    opacity: 50%;
+  }
+  .cont-home .flex-profil {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    text-align: right;
+  }
+  .flex-profil label {
+    margin-top: 2em;
+    color: red;
+    font-weight: bold;
+  }
+  .profil-description h1 {
+    color: red;
+    font-size: 2em;
+    border-bottom: 5px double red;
+  }
+  .cont-home .profil-title {
+    color: rgb(175, 141, 128);
+    text-shadow: 5px 5px 10px #000, -1px -1px 3px #d18664;
+    margin-left: 1em;
+  }
+}
