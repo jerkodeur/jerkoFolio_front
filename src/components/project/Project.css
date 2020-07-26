@@ -1,6 +1,7 @@
 .cont-display-projects {
   width: 100%;
   margin-top: 2em;
+  margin-bottom: 1em;
 }
 
 .cont-display-projects .left {
@@ -68,6 +69,11 @@
   width: 80%;
 }
 
+.cont-display-projects .pre-link {
+  color: rgb(194, 160, 142);
+  font-weight: 500;
+}
+
 .cont-display-projects .flex-gen-project {
   display: flex;
   flex-direction: column;
@@ -85,6 +91,7 @@
 }
 
 .title .date-left {
+  white-space: nowrap;
   color: #d5d4dd;
   text-align: left;
   margin-right: auto;
@@ -100,6 +107,29 @@
   font-weight: bold;
   font-size: 1.25em;
   margin-bottom: .5em;
+}
+
+.cont-display-projects [class^='date'] img {
+  width: 3em;
+  height: 3em;
+}
+
+.cont-display-projects .flex-github {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  margin-right: 3em;
+}
+
+.cont-display-projects .cont-description {
+  align-items: baseline;
+}
+
+.cont-display-projects .cont-description img {
+  width: 2em;
+  height: 2em;
+  margin-top: .5em;
+  margin-right: 1em;
 }
 
 /* Stylise scrollbar for chrome */
@@ -122,10 +152,10 @@
 
 @media screen and (min-width: 600px) {
   .cont-display-projects .title {
-    width: 75%;
+    width: 100%;
   }
   .cont-display-projects [class^="cont-screenshot"] .project-img {
-    max-width: 75%;
+    max-width: 1000%;
     height: 20em;
   }
   .cont-display-projects .left {
@@ -139,6 +169,22 @@
     text-align: right;
     margin-top: 1em;
     margin-right: 2em;
+  }
+  .left .infos-project {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    width: 95%;
+  }
+  .right .infos-project {
+    display: flex;
+    justify-content: space-between;
+    align-items: inherit;
+    width: 95%;
+  }
+  .infos-project .edit {
+    width: 2em;
+    height: 2em;
   }
   .cont-display-projects .title {
     display: flex;
@@ -168,12 +214,15 @@
     margin-top: 3em;
   }
   .flex-gen-project .description {
-    width: 100%;
     margin: 2em 1em 1em 1em;
     padding: 1em;
     border-top: 3px double red;
     max-height: 24em;
     overflow-x: hidden;
     overflow-y: auto;
+  }
+  .cont-display-projects .cont-description img {
+    margin-left: 5em;
+    margin-top: .5em;
   }
 }
