@@ -5,6 +5,7 @@ import { Redirect } from 'react-router-dom'
 
 import NewProject from './NewProject'
 import imageExists from '../../helpers/imageExists'
+import formatAjaxError from '../../helpers/formatAjaxError'
 
 const url = process.env.REACT_APP_API_URL
 
@@ -48,13 +49,8 @@ const NewProjectContainer = ({ location }) => {
     Axios.get(`${url}/technos`)
       .then((res) => setListTechnos(res.data))
       .catch((err) => {
-        const errStatus = err.response ? err.response.status : 'N/D'
-        const errData = err.response ? err.response.data : { message: 'Network Error' }
-        setAjaxError({
-          action: 'getTechnos',
-          code: errStatus,
-          message: errData.message
-        })
+        const errorObject = formatAjaxError(err, 'getTechnos')
+        setAjaxError(errorObject)
       })
   }
 
@@ -92,13 +88,8 @@ const NewProjectContainer = ({ location }) => {
     Axios.post(`${url}/projects`, datasToBack)
       .then((res) => res.status === 201 && <Redirect to='/project' />)
       .catch((err) => {
-        const errStatus = err.response ? err.response.status : 'N/D'
-        const errData = err.response ? err.response.data : { message: 'Network Error' }
-        setAjaxError({
-          action: 'postProject',
-          code: errStatus,
-          message: errData.message
-        })
+        const errorObject = formatAjaxError(err, 'postProject')
+        setAjaxError(errorObject)
       })
   }
   return (
@@ -116,6 +107,12 @@ const NewProjectContainer = ({ location }) => {
       handleClick={handleClick}
     />
   )
+}
+
+NewProjectContainer.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string
+  }).isRequired
 }
 
 export default NewProjectContainer
