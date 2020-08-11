@@ -68,19 +68,26 @@ const NewProjectContainer = ({ location }) => {
       })
   }
 
+  const imageExists = (dir, file) =>
+    fetch(`/images/${dir}/${file}`).then((res) =>
+      res.headers.get('Content-Type').startsWith('image/')
+    )
+
   // Add form data to the state on change
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     const value = e.target.value
     const id = e.target.id
     setFormData({ ...formData, [id]: value })
     // Verify if image exist
     if (id === 'image') {
+      let exists = false
       try {
-        require(`../../images/projets/${value}`)
-        setErrors({ ...errors, formData: { ...formData, image: 'yes' } })
+        exists = await imageExists('projets', value)
       } catch (err) {
-        setErrors({ ...errors, formData: { ...formData, image: 'no' } })
+        console.error(err)
       }
+      const image = exists ? 'yes' : 'no'
+      setErrors({ ...errors, formData: { ...formData, image } })
     }
   }
   // Manage the list of selected techno

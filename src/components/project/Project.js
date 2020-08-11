@@ -54,7 +54,7 @@ const Project = (props) => {
             const technos = project.technos
             let tempDate = moment(date).format('MMMM YYYY')
             tempDate = tempDate[0].toUpperCase() + tempDate.slice(1)
-            const tempImage = require(`../../images/projets/${image}`)
+            const tempImage = `/images/projets/${image}`
             const side = id % 2 === 0 ? 'left' : 'right'
             return (
               <div className='flex-gen-project' key={id}>
