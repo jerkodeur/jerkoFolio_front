@@ -11,7 +11,9 @@ const url = process.env.REACT_APP_API_URL
 
 const ProjectFormContainer = ({ location, history, match }) => {
   // Get projectId for edit mode
-  const { params: { projectId } } = match
+  const {
+    params: { projectId }
+  } = match
 
   //* STATE
 
@@ -72,6 +74,7 @@ const ProjectFormContainer = ({ location, history, match }) => {
           date: new Date(date)
         }
         setFormData(projectData)
+        checkImage(projectData.image)
       })
       .catch((err) => {
         const errorObject = formatAjaxError(err, 'getProject')
@@ -79,16 +82,20 @@ const ProjectFormContainer = ({ location, history, match }) => {
       })
   }
 
+  const checkImage = async (value) => {
+    const exists = await imageExists('projets', value)
+    const image = exists ? 'yes' : 'no'
+    setFormErrors({ ...formErrors, image })
+  }
+
   // Add form data to the state on change
-  const handleChange = async (e) => {
+  const handleChange = (e) => {
     const value = e.target.value
     const id = e.target.id
     setFormData({ ...formData, [id]: value })
     // Verify if image exist
     if (id === 'image') {
-      const exists = await imageExists('projets', value)
-      const image = exists ? 'yes' : 'no'
-      setFormErrors({ ...formErrors, image })
+      checkImage(value)
     }
   }
   // Manage the list of selected techno
