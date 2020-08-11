@@ -5,7 +5,6 @@ import { Redirect } from 'react-router-dom'
 
 import NewProject from './NewProject'
 
-
 const url = process.env.REACT_APP_API_URL
 
 const NewProjectContainer = ({ location }) => {
@@ -22,7 +21,7 @@ const NewProjectContainer = ({ location }) => {
   })
 
   // handle techno list
-  const [selectedTechnos] = useState([])
+  const [selectedTechnos, setSelectedTechnos] = useState([])
   const [listTechnos, setListTechnos] = useState()
 
   // handle Errors
@@ -46,7 +45,6 @@ const NewProjectContainer = ({ location }) => {
 
   // others
   const [errorAlarm, setErrorAlarm] = useState(false)
-  const [refresh, setRefresh] = useState(null)
 
   // Fetching technos on the first loading of the page
   useEffect(() => {
@@ -87,18 +85,13 @@ const NewProjectContainer = ({ location }) => {
   }
   // Manage the list of selected techno
   const handleTechnos = (e) => {
-    const tempId = e.target.id
-    const pos = selectedTechnos.indexOf(tempId)
-    if (pos !== -1) {
-      selectedTechnos.splice(pos, 1)
-    } else {
-      selectedTechnos.push(tempId)
-    }
-    setRefresh(!refresh)
+    const tempId = Number(e.target.id)
+    setSelectedTechnos((prevSelectedTechnos) =>
+      prevSelectedTechnos.includes(tempId)
+        ? prevSelectedTechnos.filter((technoId) => technoId !== tempId)
+        : [...prevSelectedTechnos, tempId]
+    )
   }
-
-  // handle page refresh
-  useEffect(() => {}, [refresh])
 
   // remove the default behavior of the form
   const submitForm = (e) => {

@@ -14,7 +14,7 @@ import False from '../../images/false.png'
 // Add a class where a techno is selected
 const technoClassName = (selectedTechnos, id) =>
   classNames({
-    selected: selectedTechnos.includes(id.toString())
+    selected: selectedTechnos.includes(id)
   })
 
 const defineIfOk = (bool) => (
