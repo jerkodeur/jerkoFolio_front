@@ -78,3 +78,10 @@
   height: .90em;
   margin-left: 1em;
 }
+
+.ajax-error {
+  background: red;
+  color: #fff;
+  font-size: 1.25em;
+  padding: 0.5em;
+}

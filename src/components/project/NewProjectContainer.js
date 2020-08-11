@@ -26,26 +26,16 @@ const NewProjectContainer = ({ location }) => {
   const [listTechnos, setListTechnos] = useState()
 
   // handle Errors
-  const [errors, setErrors] = useState({
-    postProject: {
-      code: null,
-      message: null,
-      backReturn: null
-    },
-    getTehnos: {
-      code: null,
-      message: null,
-      backReturn: null
-    },
-    formData: {
-      image: null,
-      url_github: false,
-      url_test: false
-    }
+  const [ajaxError, setAjaxError] = useState({
+    action: '',
+    code: null,
+    message: null
   })
-
-  // others
-  const [errorAlarm, setErrorAlarm] = useState(false)
+  const [formErrors, setFormErrors] = useState({
+    image: null,
+    url_github: false,
+    url_test: false
+  })
 
   // Fetching technos on the first loading of the page
   useEffect(() => {
@@ -58,14 +48,13 @@ const NewProjectContainer = ({ location }) => {
     Axios.get(`${url}/technos`)
       .then((res) => setListTechnos(res.data))
       .catch((err) => {
-        const errStatus = err.response.status
-        const errMessage = err.response.data
-        setErrors({
-          ...errors,
-          getTehnos: { code: errStatus, message: errMessage, backReturn: err }
+        const errStatus = err.response ? err.response.status : 'N/D'
+        const errData = err.response ? err.response.data : { message: 'Network Error' }
+        setAjaxError({
+          action: 'getTechnos',
+          code: errStatus,
+          message: errData.message
         })
-        setErrorAlarm('getTechnos')
-        console.log(errors.getTehnos)
       })
   }
 
@@ -78,7 +67,7 @@ const NewProjectContainer = ({ location }) => {
     if (id === 'image') {
       const exists = await imageExists('projets', value)
       const image = exists ? 'yes' : 'no'
-      setErrors({ ...errors, formData: { ...formData, image } })
+      setFormErrors({ ...formErrors, image })
     }
   }
   // Manage the list of selected techno
@@ -103,14 +92,13 @@ const NewProjectContainer = ({ location }) => {
     Axios.post(`${url}/projects`, datasToBack)
       .then((res) => res.status === 201 && <Redirect to='/project' />)
       .catch((err) => {
-        const errStatus = err.response.status
-        const errMessage = err.response.data
-        setErrors({
-          ...errors,
-          postProject: { code: errStatus, message: errMessage, backReturn: err }
+        const errStatus = err.response ? err.response.status : 'N/D'
+        const errData = err.response ? err.response.data : { message: 'Network Error' }
+        setAjaxError({
+          action: 'postProject',
+          code: errStatus,
+          message: errData.message
         })
-        setErrorAlarm('postProject')
-        console.log(errors.postProject)
       })
   }
   return (
@@ -120,7 +108,8 @@ const NewProjectContainer = ({ location }) => {
       handleChange={handleChange}
       formData={formData}
       setFormData={setFormData}
-      errors={errors}
+      formErrors={formErrors}
+      ajaxError={ajaxError}
       listTechnos={listTechnos}
       selectedTechnos={selectedTechnos}
       handleTechnos={handleTechnos}

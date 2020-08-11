@@ -23,13 +23,19 @@ const defineIfOk = (bool) => (
   </span>
 )
 
+const errorMessages = {
+  getTechnos: 'Erreur pendant la récupération des technos',
+  postProject: 'Erreur pendant la sauvegarde du projet'
+}
+
 const NewProject = ({
   location,
   submitForm,
   handleChange,
   formData,
   setFormData,
-  errors,
+  formErrors,
+  ajaxError,
   listTechnos,
   selectedTechnos,
   handleTechnos,
@@ -39,6 +45,14 @@ const NewProject = ({
     <Header location={location.pathname} />
     <div className='cont-new-project'>
       <form onSubmit={submitForm}>
+        {ajaxError.action && (
+          <div className='ajax-error'>
+            <h3>{errorMessages[ajaxError.action]}</h3>
+            <p>
+              Code: {ajaxError.code} - Message: {ajaxError.message}
+            </p>
+          </div>
+        )}
         <div className='flex-input'>
           <label htmlFor='title'>
             <span className='required'>* </span>Titre
@@ -91,7 +105,7 @@ const NewProject = ({
         <div className='flex-input'>
           <label htmlFor='image'>
             <span className='required'>*</span> Nom du screenshot (+ extension)
-            {defineIfOk(errors.formData.image === 'yes')}
+            {defineIfOk(formErrors.image === 'yes')}
           </label>
 
           <input
