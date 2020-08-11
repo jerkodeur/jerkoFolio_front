@@ -5,7 +5,7 @@ import classNames from 'classnames'
 
 import Header from '../commons/Header'
 
-import './NewProject.css'
+import './ProjectForm.css'
 import 'react-datepicker/dist/react-datepicker.css'
 
 import True from '../../images/true.png'
@@ -28,7 +28,7 @@ const errorMessages = {
   postProject: 'Erreur pendant la sauvegarde du projet'
 }
 
-const NewProject = ({
+const ProjectForm = ({
   location,
   submitForm,
   handleChange,
@@ -43,7 +43,7 @@ const NewProject = ({
 }) => (
   <>
     <Header location={location.pathname} />
-    <div className='cont-new-project'>
+    <div className='cont-project-form'>
       <form onSubmit={submitForm}>
         {ajaxError.action && (
           <div className='ajax-error'>
@@ -160,7 +160,7 @@ const NewProject = ({
   </>
 )
 
-NewProject.propTypes = {
+ProjectForm.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string
   }).isRequired,
@@ -197,4 +197,4 @@ NewProject.propTypes = {
   handleClick: PropTypes.func
 }
 
-export default NewProject
+export default ProjectForm

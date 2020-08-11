@@ -1,4 +1,4 @@
-.cont-new-project {
+.cont-project-form {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -8,24 +8,24 @@
   width: 85%;
 }
 
-.cont-new-project form {
+.cont-project-form form {
   width: 100%;
 }
 
-.cont-new-project .flex-input {
+.cont-project-form .flex-input {
   display: flex;
   flex-direction: column;
   width: 100%;
   margin-bottom: 1em;
 }
 
-.cont-new-project ul {
+.cont-project-form ul {
   margin-top: .5em;
   margin-bottom: .5em;
   width: 100%;
 }
 
-.cont-new-project li {
+.cont-project-form li {
   color: rgb(255, 94, 0);
   font-weight: 500;
   list-style-type: none;
@@ -37,12 +37,12 @@
   cursor: pointer;
 }
 
-.cont-new-project label {
+.cont-project-form label {
   margin-bottom: .25em;
   color: #FFF;
 }
 
-.cont-new-project input, .cont-new-project textarea {
+.cont-project-form input, .cont-project-form textarea {
   padding: .5em;
   margin: auto;
   text-align: center;
@@ -54,17 +54,17 @@
   background-color: #d5d4dd;
 }
 
-.cont-new-project ul .selected {
+.cont-project-form ul .selected {
   color: rgb(246, 133, 4);
   background-color: red;
   font-weight: bold;
 }
 
-.cont-new-project .required {
+.cont-project-form .required {
   color: rgb(246, 133, 4);
 }
 
-.cont-new-project .button {
+.cont-project-form .button {
   width: 0;
   padding: 1em;
   border-style: ridge;
@@ -73,7 +73,7 @@
   font-weight: bold;
 }
 
-.cont-new-project .flex-input img {
+.cont-project-form .flex-input img {
   width: .90em;
   height: .90em;
   margin-left: 1em;

@@ -3,13 +3,13 @@ import PropTypes from 'prop-types'
 import Axios from 'axios'
 import { Redirect } from 'react-router-dom'
 
-import NewProject from './NewProject'
+import ProjectForm from './ProjectForm'
 import imageExists from '../../helpers/imageExists'
 import formatAjaxError from '../../helpers/formatAjaxError'
 
 const url = process.env.REACT_APP_API_URL
 
-const NewProjectContainer = ({ location }) => {
+const ProjectFormContainer = ({ location }) => {
   //* STATE
 
   // Handle the form datas
@@ -93,7 +93,7 @@ const NewProjectContainer = ({ location }) => {
       })
   }
   return (
-    <NewProject
+    <ProjectForm
       location={location}
       submitForm={submitForm}
       handleChange={handleChange}
@@ -109,10 +109,10 @@ const NewProjectContainer = ({ location }) => {
   )
 }
 
-NewProjectContainer.propTypes = {
+ProjectFormContainer.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string
   }).isRequired
 }
 
-export default NewProjectContainer
+export default ProjectFormContainer
