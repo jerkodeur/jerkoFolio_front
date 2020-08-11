@@ -1,5 +1,5 @@
 .cont-header hr {
-  width: 100%;
+  width: calc(100% - 1.5em);
   margin: .5em .5em .5em 1em;
   border-top: 5px red solid;
   border-radius: 50%;

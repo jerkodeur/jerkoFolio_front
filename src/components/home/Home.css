@@ -6,7 +6,6 @@
 .cont-home .flex-home {
   display: flex;
   flex-direction: column;
-  width: 90%;
   justify-content: space-around;
 }
 
@@ -80,6 +79,11 @@
   text-align: justify;
 }
 
+.profil-description .presentation p {
+  margin: 0.5em 0;
+  text-indent: 1em;
+}
+
 .presentation a {
   color: red;
 }
@@ -91,13 +95,22 @@
   margin-bottom: 1em;
 }
 
+@media screen and (max-width: 767px) {
+  .profil-description .presentation {
+    margin-left: 0;
+  }
+  .cont-home .flex-home {
+    padding: 0 1em;
+  }
+}
+
 @media screen and (min-width: 960px) {
   .cont-home .flex-home {
     flex-direction: row;
   }
   .cont-home {
-    margin-left: 5em;
-    margin-top: 5em;
+    max-width: 92%;
+    margin: 5em auto 0 auto;
   }
   .cont-home .profil-description {
     width: 75%;
