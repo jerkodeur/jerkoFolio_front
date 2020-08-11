@@ -4,6 +4,7 @@ import Axios from 'axios'
 import { Redirect } from 'react-router-dom'
 
 import NewProject from './NewProject'
+import imageExists from '../../helpers/imageExists'
 
 const url = process.env.REACT_APP_API_URL
 
@@ -68,11 +69,6 @@ const NewProjectContainer = ({ location }) => {
       })
   }
 
-  const imageExists = (dir, file) =>
-    fetch(`/images/${dir}/${file}`).then((res) =>
-      res.headers.get('Content-Type').startsWith('image/')
-    )
-
   // Add form data to the state on change
   const handleChange = async (e) => {
     const value = e.target.value
@@ -80,12 +76,7 @@ const NewProjectContainer = ({ location }) => {
     setFormData({ ...formData, [id]: value })
     // Verify if image exist
     if (id === 'image') {
-      let exists = false
-      try {
-        exists = await imageExists('projets', value)
-      } catch (err) {
-        console.error(err)
-      }
+      const exists = await imageExists('projets', value)
       const image = exists ? 'yes' : 'no'
       setErrors({ ...errors, formData: { ...formData, image } })
     }
