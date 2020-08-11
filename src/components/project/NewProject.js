@@ -163,7 +163,38 @@ const NewProject = ({
 NewProject.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string
-  }).isRequired
+  }).isRequired,
+  submitForm: PropTypes.func,
+  handleChange: PropTypes.func,
+  formData: PropTypes.shape({
+    date: PropTypes.instanceOf(Date),
+    title: PropTypes.string,
+    description: PropTypes.string,
+    image: PropTypes.string,
+    url_github: PropTypes.bool,
+    url_test: PropTypes.bool
+  }),
+  setFormData: PropTypes.func,
+  formErrors: PropTypes.shape({
+    image: PropTypes.string,
+    url_github: PropTypes.bool,
+    url_test: PropTypes.bool
+  }),
+  ajaxError: PropTypes.shape({
+    action: PropTypes.string,
+    code: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    message: PropTypes.string
+  }),
+  listTechnos: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      image_name: PropTypes.string
+    })
+  ),
+  selectedTechnos: PropTypes.arrayOf(PropTypes.number),
+  handleTechnos: PropTypes.func,
+  handleClick: PropTypes.func
 }
 
 export default NewProject
