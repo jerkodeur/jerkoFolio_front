@@ -8,11 +8,20 @@ import Header from '../commons/Header'
 import './NewProject.css'
 import 'react-datepicker/dist/react-datepicker.css'
 
+import True from '../../images/true.png'
+import False from '../../images/false.png'
+
 // Add a class where a techno is selected
 const technoClassName = (selectedTechnos, id) =>
   classNames({
     selected: selectedTechnos.includes(id.toString())
   })
+
+const defineIfOk = (bool) => (
+  <span>
+    <img src={bool ? True : False} alt='' />
+  </span>
+)
 
 const NewProject = ({
   location,
@@ -21,7 +30,6 @@ const NewProject = ({
   formData,
   setFormData,
   errors,
-  defineIfOk,
   listTechnos,
   selectedTechnos,
   handleTechnos,
@@ -83,9 +91,7 @@ const NewProject = ({
         <div className='flex-input'>
           <label htmlFor='image'>
             <span className='required'>*</span> Nom du screenshot (+ extension)
-            {errors.formData.image !== null && errors.formData.image === 'yes'
-              ? defineIfOk(true)
-              : defineIfOk(false)}
+            {defineIfOk(errors.formData.image === 'yes')}
           </label>
 
           <input

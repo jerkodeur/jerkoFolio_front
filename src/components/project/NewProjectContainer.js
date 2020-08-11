@@ -5,8 +5,6 @@ import { Redirect } from 'react-router-dom'
 
 import NewProject from './NewProject'
 
-import True from '../../images/true.png'
-import False from '../../images/false.png'
 
 const url = process.env.REACT_APP_API_URL
 
@@ -99,17 +97,6 @@ const NewProjectContainer = ({ location }) => {
     setRefresh(!refresh)
   }
 
-  const defineIfOk = (bool) => {
-    return bool ? (
-      <span>
-        <img src={True} alt='' />
-      </span>
-    ) : (
-      <span>
-        <img src={False} alt='' />
-      </span>
-    )
-  }
   // handle page refresh
   useEffect(() => {}, [refresh])
 
@@ -143,7 +130,6 @@ const NewProjectContainer = ({ location }) => {
       formData={formData}
       setFormData={setFormData}
       errors={errors}
-      defineIfOk={defineIfOk}
       listTechnos={listTechnos}
       selectedTechnos={selectedTechnos}
       handleTechnos={handleTechnos}
