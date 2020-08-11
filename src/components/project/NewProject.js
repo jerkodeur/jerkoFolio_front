@@ -1,11 +1,18 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import DatePicker from 'react-datepicker'
+import classNames from 'classnames'
 
 import Header from '../commons/Header'
 
 import './NewProject.css'
 import 'react-datepicker/dist/react-datepicker.css'
+
+// Add a class where a techno is selected
+const technoClassName = (selectedTechnos, id) =>
+  classNames({
+    selected: selectedTechnos.includes(id.toString())
+  })
 
 const NewProject = ({
   location,
@@ -16,8 +23,8 @@ const NewProject = ({
   errors,
   defineIfOk,
   listTechnos,
+  selectedTechnos,
   handleTechnos,
-  handleClass,
   handleClick
 }) => (
   <>
@@ -75,8 +82,7 @@ const NewProject = ({
         </div>
         <div className='flex-input'>
           <label htmlFor='image'>
-            <span className='required'>*</span> Nom du screenshot (+
-            extension)
+            <span className='required'>*</span> Nom du screenshot (+ extension)
             {errors.formData.image !== null && errors.formData.image === 'yes'
               ? defineIfOk(true)
               : defineIfOk(false)}
@@ -117,7 +123,7 @@ const NewProject = ({
                 key={id}
                 id={techno.id}
                 onClick={handleTechnos}
-                className={handleClass(techno.id)}
+                className={technoClassName(selectedTechnos, techno.id)}
               >
                 {techno.name}
               </li>

@@ -98,15 +98,7 @@ const NewProjectContainer = ({ location }) => {
     }
     setRefresh(!refresh)
   }
-  // Add a class where a techno is selected
-  const handleClass = (id) => {
-    const pos = selectedTechnos.includes(id.toString())
-    if (pos) {
-      return 'selected'
-    } else {
-      return ''
-    }
-  }
+
   const defineIfOk = (bool) => {
     return bool ? (
       <span>
@@ -153,8 +145,8 @@ const NewProjectContainer = ({ location }) => {
       errors={errors}
       defineIfOk={defineIfOk}
       listTechnos={listTechnos}
+      selectedTechnos={selectedTechnos}
       handleTechnos={handleTechnos}
-      handleClass={handleClass}
       handleClick={handleClick}
     />
   )
