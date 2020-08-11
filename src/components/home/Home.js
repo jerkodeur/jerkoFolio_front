@@ -9,7 +9,6 @@ import ProfilPhoto from '../../images/me.jpeg'
 import MyPrez from './MyPres.md'
 
 const Home = (props) => {
-
   const [mdPrez, setMdPrez] = useState()
   const [windowSize, setWindowSize] = useState()
 
@@ -28,11 +27,11 @@ const Home = (props) => {
   // Define the width of the screen
   useLayoutEffect(() => {
     const updateSize = () => {
-      setWindowSize(window.innerWidth,)
+      setWindowSize(window.innerWidth)
     }
-    window.addEventListener('resize', updateSize);
+    window.addEventListener('resize', updateSize)
     updateSize()
-    return () => window.removeEventListener('resize', updateSize);
+    return () => window.removeEventListener('resize', updateSize)
   }, [])
 
   return (
@@ -40,11 +39,11 @@ const Home = (props) => {
       <Header location={props.location.pathname} />
       <div className='cont-home'>
         <div className='flex-home'>
-          {windowSize <= 960 &&
+          {windowSize <= 960 && (
             <div className='profil-title'>
               <h1>Développeur Web / Web Mobile</h1>
             </div>
-          }
+          )}
           <div className='flex-profil'>
             <img src={ProfilPhoto} alt='' className='profil-photo' />
             <label>Identité </label>
@@ -63,14 +62,14 @@ const Home = (props) => {
               </div>
             </div>
           </div>
-          { windowSize > 960 &&
-          <div className='profil-title'>
-            <h1>Développeur Web / Web Mobile</h1>
-          </div>
-          }
+          {windowSize > 960 && (
+            <div className='profil-title'>
+              <h1>Développeur Web / Web Mobile</h1>
+            </div>
+          )}
           <div className='profil-description'>
             <h1>Présentation</h1>
-            <div class='presentation'>
+            <div className='presentation'>
               <ReactMarkdown source={mdPrez} />
             </div>
           </div>

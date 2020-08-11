@@ -2,15 +2,15 @@ import React from 'react'
 
 import Routes from './components/commons/Routes'
 
-import './App.css';
+import './App.css'
 
 function App(props) {
   console.log(props)
-  return(
+  return (
     <div className='app'>
       <Routes />
     </div>
   )
 }
 
-export default App;
+export default App

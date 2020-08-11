@@ -17,11 +17,21 @@ const Header = (props) => {
 
   const Contact = () => (
     <div>
-      <a href='https://github.com/jerkodeur' title='Go to my linkedin profile' target='_blank' rel="noopener noreferrer">
+      <a
+        href='https://github.com/jerkodeur'
+        title='Go to my linkedin profile'
+        target='_blank'
+        rel='noopener noreferrer'
+      >
         <img src={Linkedin} alt='' />
       </a>
-      <a href='https://github.com/jerkodeur' title='Go to my github profile' target='_blank' rel="noopener noreferrer">
-      <img src={Github} alt='' />
+      <a
+        href='https://github.com/jerkodeur'
+        title='Go to my github profile'
+        target='_blank'
+        rel='noopener noreferrer'
+      >
+        <img src={Github} alt='' />
       </a>
       <a href='maito:jerome.potie@gmail.com' title='Send me an Email'>
         <img src={Mail} alt='' />
@@ -29,15 +39,28 @@ const Header = (props) => {
     </div>
   )
 
-
   const defineCustomElement = (location) => {
     switch (location) {
       case '/project':
-        return <Link to='/project/new'><p className='more-button'>+</p></Link>
+        return (
+          <Link to='/project/new'>
+            <p className='more-button'>+</p>
+          </Link>
+        )
       case '/project/new':
-        return <p className="title-link"><Link to='/project'><img src={BackArrow} alt='retour'/></Link></p>
+        return (
+          <p className='title-link'>
+            <Link to='/project'>
+              <img src={BackArrow} alt='retour' />
+            </Link>
+          </p>
+        )
       default:
-        return <p className='contact'><Contact /></p>
+        return (
+          <p className='contact'>
+            <Contact />
+          </p>
+        )
     }
   }
 
@@ -47,7 +70,7 @@ const Header = (props) => {
         <div>
           <Title />
         </div>
-        { defineCustomElement(location) }
+        {defineCustomElement(location)}
       </div>
       <hr />
       <Nav location={location} />

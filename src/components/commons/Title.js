@@ -6,9 +6,9 @@ const Title = () => {
   return (
     <div className='cont-title'>
       <p className='p-title'>
-        <span className="maj-title">J</span>
+        <span className='maj-title'>J</span>
         erko
-        <span className="maj-title">F</span>
+        <span className='maj-title'>F</span>
         olio
       </p>
     </div>
