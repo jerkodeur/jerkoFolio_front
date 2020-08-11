@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import Proptypes from 'prop-types'
+import PropTypes from 'prop-types'
 import React from 'react'
 
 import Nav from './Nav'
@@ -79,7 +79,7 @@ const Header = (props) => {
 }
 
 Header.propTypes = {
-  location: Proptypes.string.isRequired
+  location: PropTypes.string.isRequired
 }
 
 export default Header

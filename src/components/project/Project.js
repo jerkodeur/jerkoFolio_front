@@ -1,4 +1,5 @@
 import React, { useLayoutEffect, useEffect, useState } from 'react'
+import PropTypes from 'prop-types'
 import Axios from 'axios'
 import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
@@ -10,7 +11,7 @@ import Header from '../commons/Header'
 
 import './Project.css'
 
-import Edit from '../../images/modify.png' // TODO to come up
+// import Edit from '../../images/modify.png' // TODO to come up
 import Www from '../../images/www.svg'
 import Github from '../../images/github.png'
 
@@ -46,8 +47,8 @@ const Project = (props) => {
               title,
               description,
               date,
-              url_github,
-              url_test,
+              url_github: urlGithub,
+              url_test: urlTest,
               image
             } = project.mainDatas
             const technos = project.technos
@@ -66,12 +67,12 @@ const Project = (props) => {
                       <div className='flex-github'>
                         <img src={Github} alt='' />
                         <a
-                          href={url_github}
+                          href={urlGithub}
                           title='Voir le dépôt github du projet'
                           target='_blank'
                           rel='noopener noreferrer'
                         >
-                          {url_github}
+                          {urlGithub}
                         </a>
                       </div>
                     </div>
@@ -99,7 +100,7 @@ const Project = (props) => {
                         {side === 'left' && (
                           <>
                             <a
-                              href={url_test}
+                              href={urlTest}
                               title='Voir le site'
                               target='_blank'
                               rel='noopener noreferrer'
@@ -113,7 +114,7 @@ const Project = (props) => {
                         {side === 'right' && (
                           <>
                             <a
-                              href={url_test}
+                              href={urlTest}
                               title='Voir le site'
                               target='_blank'
                               rel='noopener noreferrer'
@@ -164,12 +165,12 @@ const Project = (props) => {
                     <div className='flex-github'>
                       <img src={Github} alt='' />
                       <a
-                        href={url_github}
+                        href={urlGithub}
                         title='Voir le dépôt github du projet'
                         target='_blank'
                         rel='noopener noreferrer'
                       >
-                        {url_github}
+                        {urlGithub}
                       </a>
                     </div>
                   </div>
@@ -180,6 +181,12 @@ const Project = (props) => {
       </div>
     </div>
   )
+}
+
+Project.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string
+  }).isRequired
 }
 
 export default Project

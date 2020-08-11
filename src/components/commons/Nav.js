@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import { NavLink } from 'react-router-dom'
 
 import './Nav.css'
@@ -11,7 +12,7 @@ const Nav = (props) => {
       case '/project/new':
         return (
           <>
-            <h3 className='title'>Ajout d'un nouveau projet</h3>
+            <h3 className='title'>Ajout d&apos;un nouveau projet</h3>
             <hr className='hr-thin' />
           </>
         )
@@ -29,6 +30,10 @@ const Nav = (props) => {
   }
 
   return <div className='cont-nav'>{handleDisplay(location)}</div>
+}
+
+Nav.propTypes = {
+  location: PropTypes.string.isRequired
 }
 
 export default Nav

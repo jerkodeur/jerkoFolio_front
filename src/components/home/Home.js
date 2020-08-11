@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react'
+import PropTypes from 'prop-types'
 import ReactMarkdown from 'react-markdown'
 
 import Header from '../commons/Header'
@@ -14,15 +15,16 @@ const Home = (props) => {
 
   useEffect(() => {
     fetch(MyPrez)
-      .then((response) => {
-        if (response.ok) return response.text()
-        else return Promise.reject("Didn't fetch text correctly")
-      })
+      .then((response) =>
+        response.ok
+          ? response.text()
+          : Promise.reject(new Error("Didn't fetch text correctly"))
+      )
       .then((text) => {
         setMdPrez(text)
       })
-      .catch((error) => console.error(error))
-  })
+      .catch((error) => console.error(error.message))
+  }, [])
 
   // Define the width of the screen
   useLayoutEffect(() => {
@@ -77,6 +79,12 @@ const Home = (props) => {
       </div>
     </div>
   )
+}
+
+Home.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string
+  }).isRequired
 }
 
 export default Home

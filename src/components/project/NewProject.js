@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+import PropTypes from 'prop-types'
 import Axios from 'axios'
 import DatePicker from 'react-datepicker'
 import { Redirect } from 'react-router-dom'
@@ -228,7 +229,9 @@ const NewProject = (props) => {
             />
           </div>
           <div className='flex-input'>
-            <label htmlFor='url_test'>Lien vers le site de l'application</label>
+            <label htmlFor='url_test'>
+              Lien vers le site de l&apos;application
+            </label>
             <input
               type='url'
               id='url_test'
@@ -259,6 +262,12 @@ const NewProject = (props) => {
       </div>
     </>
   )
+}
+
+NewProject.propTypes = {
+  location: PropTypes.shape({
+    pathname: PropTypes.string
+  }).isRequired
 }
 
 export default NewProject
