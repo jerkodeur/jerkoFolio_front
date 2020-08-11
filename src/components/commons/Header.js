@@ -44,7 +44,7 @@ const Header = (props) => {
       case '/project':
         return (
           <Link to='/project/new'>
-            <p className='more-button'>+</p>
+            <span className='more-button'>+</span>
           </Link>
         )
       case '/project/new':
@@ -57,9 +57,9 @@ const Header = (props) => {
         )
       default:
         return (
-          <p className='contact'>
+          <div className='contact'>
             <Contact />
-          </p>
+          </div>
         )
     }
   }
