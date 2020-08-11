@@ -173,8 +173,8 @@ ProjectForm.propTypes = {
     title: PropTypes.string,
     description: PropTypes.string,
     image: PropTypes.string,
-    url_github: PropTypes.bool,
-    url_test: PropTypes.bool
+    url_github: PropTypes.string,
+    url_test: PropTypes.string
   }),
   setFormData: PropTypes.func,
   formErrors: PropTypes.shape({

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import PropTypes from 'prop-types'
 import Axios from 'axios'
-import { Redirect } from 'react-router-dom'
 
 import ProjectForm from './ProjectForm'
 import imageExists from '../../helpers/imageExists'
@@ -19,11 +18,11 @@ const ProjectFormContainer = ({ location, history, match }) => {
 
   // Handle the form datas
   const [formData, setFormData] = useState({
-    title: null,
-    description: null,
-    image: null,
-    url_github: null,
-    url_test: null,
+    title: '',
+    description: '',
+    image: '',
+    url_github: '',
+    url_test: '',
     date: new Date()
   })
 
@@ -160,7 +159,15 @@ const ProjectFormContainer = ({ location, history, match }) => {
 ProjectFormContainer.propTypes = {
   location: PropTypes.shape({
     pathname: PropTypes.string
-  }).isRequired
+  }).isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func
+  }).isRequired,
+  match: PropTypes.shape({
+    params: PropTypes.shape({
+      projectId: PropTypes.string
+    })
+  }).isRequired,
 }
 
 export default ProjectFormContainer
