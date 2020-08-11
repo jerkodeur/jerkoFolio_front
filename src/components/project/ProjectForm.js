@@ -25,7 +25,9 @@ const defineIfOk = (bool) => (
 
 const errorMessages = {
   getTechnos: 'Erreur pendant la récupération des technos',
-  postProject: 'Erreur pendant la sauvegarde du projet'
+  getProject: 'Erreur pendant la récupération du projet',
+  postProject: 'Erreur pendant la creation du projet',
+  putProject: 'Erreur pendant la modification du projet'
 }
 
 const ProjectForm = ({
@@ -39,7 +41,7 @@ const ProjectForm = ({
   listTechnos,
   selectedTechnos,
   handleTechnos,
-  handleClick
+  buttonLabel
 }) => (
   <>
     <Header location={location.pathname} />
@@ -62,6 +64,7 @@ const ProjectForm = ({
             id='title'
             name='title'
             onChange={handleChange}
+            value={formData.title}
             required
           />
         </div>
@@ -99,6 +102,7 @@ const ProjectForm = ({
             name='description'
             rows='5'
             onChange={handleChange}
+            value={formData.description}
             required
           />
         </div>
@@ -113,6 +117,7 @@ const ProjectForm = ({
             id='image'
             name='image'
             onChange={handleChange}
+            value={formData.image}
             required
           />
         </div>
@@ -123,6 +128,7 @@ const ProjectForm = ({
             id='url_github'
             name='url_github'
             onChange={handleChange}
+            value={formData.url_github}
           />
         </div>
         <div className='flex-input'>
@@ -134,6 +140,7 @@ const ProjectForm = ({
             id='url_test'
             name='url_test'
             onChange={handleChange}
+            value={formData.url_test}
           />
         </div>
         <ul>
@@ -149,12 +156,7 @@ const ProjectForm = ({
               </li>
             ))}
         </ul>
-        <input
-          type='button'
-          className='button'
-          onClick={handleClick}
-          value='AJOUTER'
-        />
+        <input type='submit' className='button' value={buttonLabel} />
       </form>
     </div>
   </>

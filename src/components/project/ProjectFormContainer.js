@@ -9,7 +9,10 @@ import formatAjaxError from '../../helpers/formatAjaxError'
 
 const url = process.env.REACT_APP_API_URL
 
-const ProjectFormContainer = ({ location }) => {
+const ProjectFormContainer = ({ location, history, match }) => {
+  // Get projectId for edit mode
+  const { params: { projectId } } = match
+
   //* STATE
 
   // Handle the form datas
@@ -40,6 +43,7 @@ const ProjectFormContainer = ({ location }) => {
 
   // Fetching technos on the first loading of the page
   useEffect(() => {
+    if (projectId) fetchProject(projectId)
     fetchTechnos()
     return () => fetchTechnos()
   }, [])
@@ -50,6 +54,27 @@ const ProjectFormContainer = ({ location }) => {
       .then((res) => setListTechnos(res.data))
       .catch((err) => {
         const errorObject = formatAjaxError(err, 'getTechnos')
+        setAjaxError(errorObject)
+      })
+  }
+
+  // fetch the list of the technologies
+  const fetchProject = (projectId) => {
+    Axios.get(`${url}/projects/${projectId}`)
+      .then((res) => {
+        const { mainDatas, technos } = res.data
+        const technoIds = technos.map(({ id }) => id)
+        setSelectedTechnos(technoIds)
+
+        const { id, date, ...rest } = mainDatas
+        const projectData = {
+          ...rest,
+          date: new Date(date)
+        }
+        setFormData(projectData)
+      })
+      .catch((err) => {
+        const errorObject = formatAjaxError(err, 'getProject')
         setAjaxError(errorObject)
       })
   }
@@ -79,19 +104,35 @@ const ProjectFormContainer = ({ location }) => {
   // remove the default behavior of the form
   const submitForm = (e) => {
     e.preventDefault(e)
-  }
-
-  const handleClick = (e) => {
     const datasToBack = {}
     datasToBack.project = formData
     datasToBack.techno = selectedTechnos
+    if (!projectId) {
+      createProject(datasToBack)
+    } else {
+      updateProject(datasToBack, projectId)
+    }
+  }
+
+  const createProject = (datasToBack) => {
     Axios.post(`${url}/projects`, datasToBack)
-      .then((res) => res.status === 201 && <Redirect to='/project' />)
+      .then(() => history.push('/project'))
       .catch((err) => {
         const errorObject = formatAjaxError(err, 'postProject')
         setAjaxError(errorObject)
       })
   }
+
+  const updateProject = (datasToBack, id) => {
+    Axios.put(`${url}/projects/${id}`, datasToBack)
+      .then(() => history.push('/project'))
+      .catch((err) => {
+        const errorObject = formatAjaxError(err, 'putProject')
+        setAjaxError(errorObject)
+      })
+  }
+
+  const buttonLabel = projectId ? 'MODIFIER' : 'AJOUTER'
   return (
     <ProjectForm
       location={location}
@@ -104,7 +145,7 @@ const ProjectFormContainer = ({ location }) => {
       listTechnos={listTechnos}
       selectedTechnos={selectedTechnos}
       handleTechnos={handleTechnos}
-      handleClick={handleClick}
+      buttonLabel={buttonLabel}
     />
   )
 }

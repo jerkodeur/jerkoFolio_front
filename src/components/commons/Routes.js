@@ -11,6 +11,7 @@ const Routes = () => {
       <Route exact path='/' component={Home} />
       <Route exact path='/project' component={Project} />
       <Route path='/project/new' component={ProjectFormContainer} />
+      <Route path='/project/edit/:projectId' component={ProjectFormContainer} />
     </Switch>
   )
 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import Axios from 'axios'
 import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
-
+import { Link } from 'react-router-dom'
 import 'moment/locale/fr'
 
 import DisplayTechnos from './DisplayTechnos'
@@ -42,8 +42,9 @@ const Project = (props) => {
       <Header location={props.location.pathname} />
       <div className='cont-display-projects'>
         {projects &&
-          projects.map((project, id) => {
+          projects.map((project, index) => {
             const {
+              id,
               title,
               description,
               date,
@@ -55,7 +56,7 @@ const Project = (props) => {
             let tempDate = moment(date).format('MMMM YYYY')
             tempDate = tempDate[0].toUpperCase() + tempDate.slice(1)
             const tempImage = `/images/projets/${image}`
-            const side = id % 2 === 0 ? 'left' : 'right'
+            const side = index % 2 === 0 ? 'left' : 'right'
             return (
               <div className='flex-gen-project' key={id}>
                 {side === 'right' && windowSize > 1150 && (
@@ -83,9 +84,12 @@ const Project = (props) => {
                   <div className='infos-project'>
                     {
                       side === 'left' && (
-                        <a href='#' title='Modifier le contenu du projet'>
+                        <Link
+                          to={`/project/edit/${id}`}
+                          title='Modifier le contenu du projet'
+                        >
                           Modifier
-                        </a>
+                        </Link>
                       ) // TODO To come up
                     }
                     <div className='title'>
@@ -128,9 +132,12 @@ const Project = (props) => {
                     </div>
                     {
                       side === 'right' && (
-                        <a href='#' title='Modifier le contenu du projet'>
+                        <Link
+                          to={`/project/edit/${id}`}
+                          title='Modifier le contenu du projet'
+                        >
                           Modifier
-                        </a>
+                        </Link>
                       ) // TODO to come up
                     }
                   </div>
