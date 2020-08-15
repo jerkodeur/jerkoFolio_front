@@ -17,13 +17,13 @@ const Header = (props) => {
 
   const Contact = () => (
     <div>
-      <a href='https://github.com/jerkodeur' title='Go to my linkedin profile' target='_blank' rel="noopener noreferrer">
+      <a href='https://github.com/jerkodeur' title='Voir mon profil Linkedin' target='_blank' rel="noopener noreferrer">
         <img src={Linkedin} alt='' />
       </a>
-      <a href='https://github.com/jerkodeur' title='Go to my github profile' target='_blank' rel="noopener noreferrer">
+      <a href='https://github.com/jerkodeur' title='Voir mon profil Github' target='_blank' rel="noopener noreferrer">
       <img src={Github} alt='' />
       </a>
-      <a href='maito:jerome.potie@gmail.com' title='Send me an Email'>
+      <a href='maito:jerome.potie@gmail.com' title='Contactez-moi!'>
         <img src={Mail} alt='' />
       </a>
     </div>

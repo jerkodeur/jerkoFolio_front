@@ -14,15 +14,13 @@ import Edit from '../../images/modify.png' //TODO to come up
 import Www from '../../images/www.svg'
 import Github from '../../images/github.png'
 
-const url = process.env.REACT_APP_API_URL
-
 const Project = (props) => {
 
   const [projects, setProjects] = useState()
   const [windowSize, setWindowSize] = useState()
 
   useEffect(() => {
-    Axios.get(`${url}/projects`)
+    Axios.get('/projects')
       .then(res => res.status === 200 && setProjects(res.data))
       .catch(err => console.log(err))
   }, [])

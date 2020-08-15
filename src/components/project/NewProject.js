@@ -11,9 +11,6 @@ import "react-datepicker/dist/react-datepicker.css"
 import True from '../../images/true.png'
 import False from '../../images/false.png'
 
-
-const url = process.env.REACT_APP_API_URL
-
 const NewProject = (props) => {
 
   //* STATE
@@ -63,7 +60,7 @@ const NewProject = (props) => {
 
   // fetch the list of the technologies
   const fetchTechnos = () => {
-    Axios.get(`${url}/technos`)
+    Axios.get('/technos')
       .then(res => setListTechnos(res.data))
       .catch(err => {
         const errStatus = err.response.status
@@ -125,7 +122,7 @@ const NewProject = (props) => {
     const datasToBack = {}
     datasToBack.project = formData
     datasToBack.techno = selectedTechnos
-    Axios.post(`${url}/projects`, datasToBack)
+    Axios.post('/projects', datasToBack)
       .then(res => res.status === 201 && <Redirect to='/project' />)
       .catch(err => {
         const errStatus = err.response.status

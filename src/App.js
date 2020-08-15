@@ -5,7 +5,6 @@ import Routes from './components/commons/Routes'
 import './App.css';
 
 function App(props) {
-  console.log(props)
   return(
     <div className='app'>
       <Routes />
