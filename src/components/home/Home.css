@@ -14,7 +14,7 @@
   width: 15em;
   height: 15em;
   border-radius: 100%;
-  opacity: 75%;
+  opacity: 0.75;
   box-shadow: 10px 10px 20px rgb(146, 110, 97), -10px -10px 20px rgb(146, 110, 97);
 }
 
@@ -40,7 +40,7 @@
   border-radius: 1em;
   padding: 1em;
   background-color: rgb(146, 110, 97);
-  opacity: 51%;
+  opacity: 0.5;
   align-self: flex-end;
 }
 
