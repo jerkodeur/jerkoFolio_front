@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react'
 import ReactMarkdown from 'react-markdown'
 
+import Contact from '../commons/Contact'
 import Header from '../commons/Header'
 
 import './Home.css'
@@ -37,7 +38,7 @@ const Home = (props) => {
 
   return (
     <div>
-      <Header location={props.location.pathname} />
+      <Header location={props.location.pathname} windowSize={windowSize} />
       <div className='cont-home'>
         <div className='flex-home'>
           {windowSize <= 960 &&
@@ -75,6 +76,7 @@ const Home = (props) => {
             </div>
           </div>
         </div>
+        {windowSize < 450 && <Contact />}
       </div>
     </div>
   )

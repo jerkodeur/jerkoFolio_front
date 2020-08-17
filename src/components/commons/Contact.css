@@ -1,0 +1,21 @@
+.cont-contact {
+  display: flex;
+  justify-content: space-around;
+}
+
+.cont-contact img {
+  width: 3em;
+  height: 3em;
+  margin-right: 0.5em;
+  margin-bottom: 1em;
+}
+
+.cont-contact .contact img {
+  padding: .5em;
+  margin-bottom: .5em;
+}
+
+.cont-contact a {
+  text-decoration: none;
+  color: red;
+}

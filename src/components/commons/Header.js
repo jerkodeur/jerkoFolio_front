@@ -4,31 +4,14 @@ import React from 'react'
 
 import Nav from './Nav'
 import Title from './Title'
+import Contact from './Contact'
 
 import './Header.css'
 
 import BackArrow from '../../images/back_arrow.png'
-import Github from '../../images/github.png'
-import Mail from '../../images/email.png'
-import Linkedin from '../../images/linkedin.png'
 
 const Header = (props) => {
-  const { location } = props
-
-  const Contact = () => (
-    <div>
-      <a href='https://github.com/jerkodeur' title='Voir mon profil Linkedin' target='_blank' rel="noopener noreferrer">
-        <img src={Linkedin} alt='' />
-      </a>
-      <a href='https://github.com/jerkodeur' title='Voir mon profil Github' target='_blank' rel="noopener noreferrer">
-      <img src={Github} alt='' />
-      </a>
-      <a href='maito:jerome.potie@gmail.com' title='Contactez-moi!'>
-        <img src={Mail} alt='' />
-      </a>
-    </div>
-  )
-
+  const { location, windowSize } = props
 
   const defineCustomElement = (location) => {
     switch (location) {
@@ -37,7 +20,7 @@ const Header = (props) => {
       case '/project/new':
         return <p className="title-link"><Link to='/project'><img src={BackArrow} alt='retour'/></Link></p>
       default:
-        return <p className='contact'><Contact /></p>
+        return windowSize > 450 ? <p className='contact'><Contact /></p> : ''
     }
   }
 
@@ -56,7 +39,8 @@ const Header = (props) => {
 }
 
 Header.propTypes = {
-  location: Proptypes.string.isRequired
+  location: Proptypes.string.isRequired,
+  windowSize: Proptypes.number.isRequired
 }
 
 export default Header

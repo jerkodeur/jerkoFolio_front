@@ -1,18 +1,29 @@
  .cont-img-technos {
    display: flex;
-   flex-direction: column;
-   align-items: flex-start;
-   justify-content: flex-start;
+   margin-top: .75em;
+   flex-wrap: wrap;
+   width: 100%;
+   justify-content: center;
  }
 
  .cont-img-technos img {
    width: 3em;
    height: 3em;
+   padding: 0em .75em;
  }
 
- @media screen and (min-width: 1150px) {
+ @media screen and (min-width: 600px) {
+   .cont-img-technos {
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+   }
+ }
+
+ @media screen and (min-width: 1050px) {
    .cont-img-technos {
      justify-content: flex-start;
      margin-top: 4em;
+     width: min-content;
    }
  }

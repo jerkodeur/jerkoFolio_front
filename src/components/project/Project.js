@@ -49,7 +49,7 @@ const Project = (props) => {
             const side = id % 2 === 0 ? 'left' : 'right'
             return (
               <div className='flex-gen-project' key={id}>
-                {side === 'right' && windowSize > 1150 &&
+                {side === 'right' && windowSize > 1050 &&
                   <>
                     <div className='cont-description'>
                       <div className='description'>
@@ -101,18 +101,18 @@ const Project = (props) => {
                           }
                   </div>
                   <div className={side === 'left' ? 'cont-screenshot-Tleft' : 'cont-screenshot-Tright'}>
-                    {side === 'right' && windowSize < 1150 &&
+                    {side === 'right' && windowSize < 1050 &&
                       <DisplayTechnos listTechnos={technos} />
                     }
                     <img src={tempImage} alt='Screenshot du projet' className='project-img' />
-                    {side === 'left' && windowSize < 1150 &&
+                    {side === 'left' && windowSize < 1050 &&
                       <DisplayTechnos listTechnos={technos} />
                     }
                   </div>
                 </div>
-                {side === 'left' && windowSize > 1150 &&
+                {side === 'left' && windowSize > 1050 &&
                   <DisplayTechnos listTechnos={technos} />}
-                {(side === 'left' || windowSize < 1150) &&
+                {(side === 'left' || windowSize < 1050) &&
                   <div className='cont-description'>
                     <div className='description'>
                       <ReactMarkdown source={description} />
