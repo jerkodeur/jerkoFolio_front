@@ -58,7 +58,6 @@
 .cont-display-projects [class^="cont-screenshot"] .project-img {
   width: 90%;
   height: 12em;
-  border: 3px double red;
 }
 
 .cont-display-projects .title {
@@ -156,7 +155,6 @@
   .cont-display-projects [class^="cont-screenshot"] .project-img {
     width: 90%;
     height: 15em;
-    border: 3px double red;
   }
 }
 
