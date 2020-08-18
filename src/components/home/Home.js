@@ -3,16 +3,18 @@ import ReactMarkdown from 'react-markdown'
 
 import Contact from '../commons/Contact'
 import Header from '../commons/Header'
+import Profil from './Profil'
+
 
 import './Home.css'
 
-import ProfilPhoto from '../../images/me.jpeg'
 import MyPrez from './MyPres.md'
 
 const Home = (props) => {
 
   const [mdPrez, setMdPrez] = useState()
   const [windowSize, setWindowSize] = useState()
+  const [displayForm, setDisplayForm] = useState(false)
 
   useEffect(() => {
     fetch(MyPrez)
@@ -36,39 +38,20 @@ const Home = (props) => {
     return () => window.removeEventListener('resize', updateSize);
   }, [])
 
+  const Title = () => (
+    <div className='profil-title'>
+      <h1>Développeur Web / <span onClick={() => setDisplayForm(!displayForm)}>W</span>eb Mobile</h1>
+    </div>
+  )
+
   return (
     <div>
       <Header location={props.location.pathname} windowSize={windowSize} />
       <div className='cont-home'>
         <div className='flex-home'>
-          {windowSize <= 960 &&
-            <div className='profil-title'>
-              <h1>Développeur Web / Web Mobile</h1>
-            </div>
-          }
-          <div className='flex-profil'>
-            <img src={ProfilPhoto} alt='' className='profil-photo' />
-            <label>Identité </label>
-            <div className='div-infos'>
-              <div className='flex-ident'>
-                <h4 className='cat'>Nom:</h4>
-                <p className='infos'>Potié</p>
-              </div>
-              <div className='flex-ident'>
-                <h4 className='cat'>Prénom:</h4>
-                <p className='infos'>Jérôme</p>
-              </div>
-              <div className='flex-ident'>
-                <h4 className='cat'>Alias:</h4>
-                <p className='infos'>Jerkoder</p>
-              </div>
-            </div>
-          </div>
-          { windowSize > 960 &&
-          <div className='profil-title'>
-            <h1>Développeur Web / Web Mobile</h1>
-          </div>
-          }
+          {windowSize <= 960 && <Title />}
+          <Profil displayForm={displayForm} />
+          {windowSize > 960 && <Title />}
           <div className='profil-description'>
             <h1>Présentation</h1>
             <div class='presentation'>

@@ -1,0 +1,60 @@
+.profil-photo {
+  width: 15em;
+  height: 15em;
+  border-radius: 100%;
+  opacity: 0.75;
+  box-shadow: 10px 10px 20px rgb(146, 110, 97), -10px -10px 20px rgb(146, 110, 97);
+}
+
+.flex-profil {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: right;
+}
+
+.flex-profil label {
+  margin-top: 1em;
+  color: red;
+  font-weight: bold;
+  align-self: flex-end;
+  margin-right: .5em;
+  margin-bottom: .25em;
+}
+
+.flex-profil .div-infos {
+  border: 3px double red;
+  border-radius: 1em;
+  padding: 1em;
+  background-color: rgb(146, 110, 97);
+  opacity: 0.5;
+  align-self: flex-end;
+}
+
+.div-infos .flex-ident {
+  display: flex;
+  font-display: column;
+  text-align: right;
+  justify-content: space-between;
+  width: 8em;
+}
+
+.div-infos .cat {
+  color: #000;
+  font-weight: 500;
+  text-align: justify;
+}
+
+@media screen and (min-width: 960px) {
+  .profil-description {
+    width: 75%;
+    font-size: 1.25em;
+  }
+  .flex-profil {
+    margin: auto;
+  }
+  .flex-profil label {
+    margin-top: 2em;
+  }
+}

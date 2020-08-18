@@ -1,0 +1,23 @@
+.cont-connexion fieldset {
+  padding: .5em;
+  margin-top: 1.5em;
+  border-color: rgb(175, 141, 128);
+}
+
+.cont-connexion legend {
+  text-align: center;
+}
+
+.cont-connexion input {
+  padding: 0.5em;
+  margin-bottom: .5em;
+  text-align: center;
+  background-color: rgb(56, 3, 3);
+  color: rgb(175, 141, 128);
+}
+
+.cont-connexion button {
+  background-color: rgb(175, 141, 128);
+  padding: 0.25em;
+  font-weight: bold;
+}
