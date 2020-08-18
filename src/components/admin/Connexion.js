@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios'
+import jwt from 'jsonwebtoken'
+import Proptypes from 'prop-types'
 
 import './Connexion.css'
 
-const Connexion = () => {
+const Connexion = ({ defineIfConnect }) => {
 
   const [datas, SetDatas] = useState({
     pseudo: '',
@@ -16,8 +18,14 @@ const Connexion = () => {
 
   const handleClick = () => {
     datas.pseudo !== '' && datas.password !== '' && axios.post('/admins', datas)
-      .then(console.log('You are connected'))
-      .catch(console.log('an error occured'))
+      .then(res => {
+        const token = res.headers['x-access-token']
+        localStorage.clear()
+        localStorage.setItem('token', token)
+        localStorage.setItem('id', jwt.decode(token).id)
+        defineIfConnect(true)
+      })
+      .catch(err => console.log(err))
   }
 
   const submitForm = (e) => {
@@ -30,16 +38,33 @@ const Connexion = () => {
         <fieldset>
           <legend>Connexion</legend>
           <div>
-            <input type='text' onChange={handleChange} id='pseudo' value={datas.pseudo} placeholder='Pseudo' />
+            <input
+              type='text'
+              onChange={handleChange}
+              id='pseudo'
+              value={datas.pseudo}
+              placeholder='Pseudo'
+            />
           </div>
           <div>
-            <input type='password' onChange={handleChange} id='password' value={datas.password} placeholder='Mot de passe' />
+            <input
+              type='password'
+              onChange={handleChange}
+              id='password'
+              value={datas.password}
+              placeholder='Mot de passe'
+              autoComplete
+            />
           </div>
           <button onClick={handleClick}>Valider</button>
         </fieldset>
       </form>
     </div>
   )
+}
+
+Connexion.prototypes = {
+  defineIfConnect: Proptypes.func.isRequired
 }
 
 export default Connexion

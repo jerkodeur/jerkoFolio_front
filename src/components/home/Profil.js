@@ -7,7 +7,7 @@ import './Profil.css'
 
 import ProfilPhoto from '../../images/me.jpeg'
 
-const Profil = ({ displayForm }) => {
+const Profil = ({ displayForm, defineIfConnect, connected }) => {
 
   const Identity = () => (
     <>
@@ -32,13 +32,15 @@ const Profil = ({ displayForm }) => {
   return (
     <div className='flex-profil'>
       <img src={ProfilPhoto} alt='' className='profil-photo' />
-      {displayForm ? <Connexion /> : <Identity />}
+      {displayForm && !connected ? <Connexion defineIfConnect={defineIfConnect} /> : <Identity />}
     </div>
   )
 }
 
 Profil.prototype = {
-  displayForm: Proptypes.bool.isRequired
+  displayForm: Proptypes.bool.isRequired,
+  defineIfConnect: Proptypes.func.isRequired,
+  connected: Proptypes.bool.isRequired
 }
 
 export default Profil

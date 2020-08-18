@@ -104,9 +104,20 @@
   margin-bottom: .5em;
 }
 
+.modify-project {
+  width: 2em;
+  height: 2em;
+}
+
 .cont-display-projects [class^='date'] img {
   width: 3em;
   height: 3em;
+}
+
+.cont-display-projects [class^='date'] .modify-project {
+  width: 2em;
+  height: 2em;
+  margin-right: 1em;
 }
 
 .cont-display-projects .flex-github {

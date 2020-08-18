@@ -15,6 +15,7 @@ import Www from '../../images/www.svg'
 import Github from '../../images/github.png'
 
 const Project = (props) => {
+  const token = localStorage.getItem('token')
 
   const [projects, setProjects] = useState()
   const [windowSize, setWindowSize] = useState()
@@ -67,9 +68,6 @@ const Project = (props) => {
                 }
                 <div className={side}>
                   <div className='infos-project'>
-                    {side === 'left' &&
-                      <a href='#' title='Modifier le contenu du projet'>Modifier</a> //TODO To come up
-                    }
                     <div className='title'>
                       {side === 'left' &&
                         <>
@@ -79,6 +77,9 @@ const Project = (props) => {
                       <span className={side === 'left' ? 'date-right' : 'date-left'}>
                         {side === 'left' &&
                           <>
+                            {token &&
+                              <a href='#todo' title='Modifier le contenu du projet'><img src={Edit} alt='Modifer' className='modify-project' /></a>
+                            }
                             <a href={url_test} title='Voir le site' target='_blank' rel="noopener noreferrer">
                               <img src={Www} alt='' />
                             </a>
@@ -88,17 +89,17 @@ const Project = (props) => {
 
                         {side === 'right' &&
                           <>
-                          <a href={url_test} title='Voir le site' target='_blank' rel="noopener noreferrer">
-                            <img src={Www} alt='' />
-                          </a>
+                            <a href={url_test} title='Voir le site' target='_blank' rel="noopener noreferrer">
+                              <img src={Www} alt='' />
+                            </a>
+                            {token &&
+                              <a href='#todo' title='Modifier le contenu du projet'><img src={Edit} alt='Modifer' className='modify-project' /></a>
+                            }
                           </>
-                          }
+                        }
                       </span>
                       {side === 'right' && <h1>{title}</h1>}
                     </div>
-                          {side === 'right' &&
-                            <a href='#' title='Modifier le contenu du projet'>Modifier</a> //TODO to come up
-                          }
                   </div>
                   <div className={side === 'left' ? 'cont-screenshot-Tleft' : 'cont-screenshot-Tright'}>
                     {side === 'right' && windowSize < 1050 &&

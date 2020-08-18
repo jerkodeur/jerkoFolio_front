@@ -1,29 +1,42 @@
+import React, { useState, useLayoutEffect } from 'react'
 import { Link } from 'react-router-dom'
 import Proptypes from 'prop-types'
-import React from 'react'
 
+import Contact from './Contact'
 import Nav from './Nav'
 import Title from './Title'
-import Contact from './Contact'
 
 import './Header.css'
 
 import BackArrow from '../../images/back_arrow.png'
 
 const Header = (props) => {
-  const { location, windowSize } = props
+  const token = localStorage.getItem('token')
+
+  const { location} = props
+
+  const [windowSize, setWindowSize] = useState()
+
+  // Define the width of the screen
+  useLayoutEffect(() => {
+    const updateSize = () => {
+      setWindowSize(window.innerWidth,)
+    }
+    window.addEventListener('resize', updateSize);
+    updateSize()
+    return () => window.removeEventListener('resize', updateSize);
+  }, [])
 
   const defineCustomElement = (location) => {
     switch (location) {
-      case '/project':
+      case token && '/project':
         return <Link to='/project/new'><p className='more-button'>+</p></Link>
       case '/project/new':
         return <p className="title-link"><Link to='/project'><img src={BackArrow} alt='retour'/></Link></p>
       default:
-        return windowSize > 450 ? <p className='contact'><Contact /></p> : ''
+        return windowSize > 450 ? <div className='contact'><Contact /></div> : ''
     }
   }
-
   return (
     <div className='cont-header'>
       <div className='flex-header'>
@@ -39,8 +52,7 @@ const Header = (props) => {
 }
 
 Header.propTypes = {
-  location: Proptypes.string.isRequired,
-  windowSize: Proptypes.number.isRequired
+  location: Proptypes.string.isRequired
 }
 
 export default Header

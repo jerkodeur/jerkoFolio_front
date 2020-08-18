@@ -15,6 +15,7 @@ const Home = (props) => {
   const [mdPrez, setMdPrez] = useState()
   const [windowSize, setWindowSize] = useState()
   const [displayForm, setDisplayForm] = useState(false)
+  const [connected, setConnected] = useState(false)
 
   useEffect(() => {
     fetch(MyPrez)
@@ -27,6 +28,14 @@ const Home = (props) => {
       })
       .catch((error) => console.error(error))
   })
+
+  useEffect(() => {
+    if(localStorage.getItem('token')) setConnected(true)
+  }, [connected])
+
+  const defineIfConnect =  () => {
+    setConnected(!connected)
+  }
 
   // Define the width of the screen
   useLayoutEffect(() => {
@@ -50,11 +59,11 @@ const Home = (props) => {
       <div className='cont-home'>
         <div className='flex-home'>
           {windowSize <= 960 && <Title />}
-          <Profil displayForm={displayForm} />
+          <Profil displayForm={displayForm} defineIfConnect={defineIfConnect} connected={connected} />
           {windowSize > 960 && <Title />}
           <div className='profil-description'>
             <h1>Présentation</h1>
-            <div class='presentation'>
+            <div className='presentation'>
               <ReactMarkdown source={mdPrez} />
             </div>
           </div>
