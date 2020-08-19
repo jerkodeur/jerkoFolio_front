@@ -9,7 +9,7 @@ const DisplayTechnos = ({ listTechnos }) => {
     <div className='cont-img-technos'>
       {
         listTechnos && listTechnos.map((techno, id) => {
-          const img = require(`../../images/icones/${techno.image_name}`)
+          const img = require(`../../images/icones/technos/${techno.image_name}`)
           return (
             <div key={id} >
               <img src={img} alt={techno.name} title={techno.name}/>

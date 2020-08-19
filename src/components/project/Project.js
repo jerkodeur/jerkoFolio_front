@@ -10,9 +10,9 @@ import Header from '../commons/Header'
 
 import './Project.css'
 
-import Edit from '../../images/modify.png' //TODO to come up
-import Www from '../../images/www.svg'
-import Github from '../../images/github.png'
+import Edit from '../../images/icones/modify.png' //TODO to come up
+import Www from '../../images/icones/www.svg'
+import Github from '../../images/icones/github.png'
 
 const Project = (props) => {
   const token = localStorage.getItem('token')

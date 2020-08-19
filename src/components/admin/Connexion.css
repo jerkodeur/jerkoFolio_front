@@ -1,11 +1,14 @@
 .cont-connexion fieldset {
+  width: 0;
   padding: .5em;
   margin-top: 1.5em;
   border-color: rgb(175, 141, 128);
+  text-align: center;
 }
 
 .cont-connexion legend {
   text-align: center;
+  color: rgb(175, 141, 128);
 }
 
 .cont-connexion input {

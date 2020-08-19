@@ -7,9 +7,9 @@ const Title = () => {
     <div className='cont-title'>
       <p className='p-title'>
         <span className="maj-title">J</span>
-        erko
-        <span className="maj-title">F</span>
-        olio
+        érôme
+        <span className="maj-title"> P</span>
+        otié
       </p>
     </div>
   )

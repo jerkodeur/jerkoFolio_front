@@ -8,7 +8,7 @@ import Title from './Title'
 
 import './Header.css'
 
-import BackArrow from '../../images/back_arrow.png'
+import BackArrow from '../../images/icones/back_arrow.png'
 
 const Header = (props) => {
   const token = localStorage.getItem('token')

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useLayoutEffect } from 'react'
-import ReactMarkdown from 'react-markdown'
+import ReactMarkdown from 'react-markdown/with-html'
 
 import Contact from '../commons/Contact'
 import Header from '../commons/Header'
@@ -30,10 +30,10 @@ const Home = (props) => {
   })
 
   useEffect(() => {
-    if(localStorage.getItem('token')) setConnected(true)
+    if (localStorage.getItem('token')) setConnected(true)
   }, [connected])
 
-  const defineIfConnect =  () => {
+  const defineIfConnect = () => {
     setConnected(!connected)
   }
 
@@ -55,16 +55,18 @@ const Home = (props) => {
 
   return (
     <div>
-      <Header location={props.location.pathname} windowSize={windowSize} />
+      <Header location={props.location.pathname} />
       <div className='cont-home'>
         <div className='flex-home'>
-          {windowSize <= 960 && <Title />}
-          <Profil displayForm={displayForm} defineIfConnect={defineIfConnect} connected={connected} />
-          {windowSize > 960 && <Title />}
+          <div className='flex-profil'>
+            <Title />
+            <Profil displayForm={displayForm} defineIfConnect={defineIfConnect} connected={connected} />
+          </div>
+          {/* {windowSize > 960 && <Title />} */}
           <div className='profil-description'>
             <h1>Présentation</h1>
             <div className='presentation'>
-              <ReactMarkdown source={mdPrez} />
+              <ReactMarkdown source={ mdPrez } escapeHtml={ false }/>
             </div>
           </div>
         </div>

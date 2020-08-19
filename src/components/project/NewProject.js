@@ -8,8 +8,8 @@ import Header from '../commons/Header'
 import './NewProject.css'
 import "react-datepicker/dist/react-datepicker.css"
 
-import True from '../../images/true.png'
-import False from '../../images/false.png'
+import True from '../../images/icones/true.png'
+import False from '../../images/icones/false.png'
 
 const NewProject = (props) => {
 
