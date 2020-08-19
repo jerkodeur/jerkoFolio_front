@@ -1,5 +1,6 @@
 import React, { useLayoutEffect, useEffect, useState } from 'react'
 import Axios from 'axios'
+import Loader from 'react-loader'
 import moment from 'moment'
 import ReactMarkdown from 'react-markdown'
 
@@ -19,10 +20,14 @@ const Project = (props) => {
 
   const [projects, setProjects] = useState()
   const [windowSize, setWindowSize] = useState()
+  const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
     Axios.get('/projects')
-      .then(res => res.status === 200 && setProjects(res.data))
+      .then(res => {
+        res.status === 200 && setProjects(res.data)
+        setLoaded(true)
+      })
       .catch(err => console.log(err))
   }, [])
 
@@ -36,10 +41,18 @@ const Project = (props) => {
     return () => window.removeEventListener('resize', updateSize);
   }, [])
 
+  const loaderOptions = {
+    width: 25,
+    length: 50,
+    opacity: 0.25,
+    color: 'red'
+  }
+
   return (
     <div>
       <Header location={props.location.pathname} />
       <div className='cont-display-projects'>
+        <Loader loaded={loaded} options={loaderOptions} >
         {
           projects && projects.map((project, id) => {
             const { title, description, date, url_github, url_test, image } = project.mainDatas
@@ -130,6 +143,7 @@ const Project = (props) => {
             )
           })
         }
+        </Loader>
       </div>
     </div>
   )
