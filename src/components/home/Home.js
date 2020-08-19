@@ -62,7 +62,6 @@ const Home = (props) => {
             <Title />
             <Profil displayForm={displayForm} defineIfConnect={defineIfConnect} connected={connected} />
           </div>
-          {/* {windowSize > 960 && <Title />} */}
           <div className='profil-description'>
             <h1>Présentation</h1>
             <div className='presentation'>
@@ -70,7 +69,7 @@ const Home = (props) => {
             </div>
           </div>
         </div>
-        {windowSize < 450 && <Contact />}
+        {windowSize < 535 && <Contact />}
       </div>
     </div>
   )

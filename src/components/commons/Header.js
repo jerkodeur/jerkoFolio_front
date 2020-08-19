@@ -34,7 +34,7 @@ const Header = (props) => {
       case '/project/new':
         return <p className="title-link"><Link to='/project'><img src={BackArrow} alt='retour'/></Link></p>
       default:
-        return windowSize > 450 ? <div className='contact'><Contact /></div> : ''
+        return windowSize > 535 ? <div className='contact'><Contact /></div> : ''
     }
   }
   return (
