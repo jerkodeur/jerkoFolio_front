@@ -30,7 +30,9 @@ const Home = (props) => {
   })
 
   useEffect(() => {
-    if (localStorage.getItem('token')) setConnected(true)
+    if (localStorage.getItem('token')) {
+      setConnected(true)
+    }
   }, [connected])
 
   const defineIfConnect = () => {
@@ -42,9 +44,9 @@ const Home = (props) => {
     const updateSize = () => {
       setWindowSize(window.innerWidth,)
     }
-    window.addEventListener('resize', updateSize);
+    window.addEventListener('resize', updateSize)
     updateSize()
-    return () => window.removeEventListener('resize', updateSize);
+    return () => window.removeEventListener('resize', updateSize)
   }, [])
 
   const Title = () => (
@@ -63,7 +65,6 @@ const Home = (props) => {
             <Profil displayForm={displayForm} defineIfConnect={defineIfConnect} connected={connected} />
           </div>
           <div className='profil-description'>
-            <h1>Présentation</h1>
             <div className='presentation'>
               <ReactMarkdown source={ mdPrez } escapeHtml={ false }/>
             </div>

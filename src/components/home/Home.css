@@ -12,19 +12,30 @@
 }
 
 .cont-home .profil-description {
-  width: 100%;
+  width: 90%;
   margin: auto;
   color: #d18664;
   margin-bottom: 1em;
+  margin-top: 1em;
 }
 
 .profil-description h1 {
   color: red;
   font-size: 2em;
-  border-bottom: 5px double red;
-  text-align: right;
-  margin-top: 1em;
+  border-radius: 20%;
   margin-bottom: -.5em;
+  padding: .25em;
+  text-shadow: 5px 5px 5px #000;
+  text-align: right;
+}
+
+.profil-description h3 {
+  color: rgb(175, 141, 128);
+  text-shadow: 5px 5px 10px #000, -2px -2px 5px #d18664;
+  border-bottom: 1px solid rgb(175, 141, 128);
+  margin-bottom: .25em;
+  margin-top: 1em;
+  padding-bottom: .25em;
   text-shadow: 5px 5px 5px #000;
 }
 
@@ -70,5 +81,12 @@
 @media screen and (min-width: 950px) {
   .cont-home .profil-title {
     font-size: 1.5em;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .cont-home .profil-description {
+    width: 70%;
+    padding-left: 4em;
   }
 }

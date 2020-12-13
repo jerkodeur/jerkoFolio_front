@@ -13,7 +13,7 @@ import BackArrow from '../../images/icones/back_arrow.png'
 const Header = (props) => {
   const token = localStorage.getItem('token')
 
-  const { location} = props
+  const { location } = props
 
   const [windowSize, setWindowSize] = useState()
 

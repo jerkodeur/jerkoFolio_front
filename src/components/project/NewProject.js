@@ -36,7 +36,7 @@ const NewProject = (props) => {
       message: null,
       backReturn: null
     },
-    getTehnos: {
+    getTechnos: {
       code: null,
       message: null,
       backReturn: null
@@ -65,9 +65,8 @@ const NewProject = (props) => {
       .catch(err => {
         const errStatus = err.response.status
         const errMessage = err.response.data
-        setErrors({ ...errors, getTehnos: { code: errStatus, message: errMessage, backReturn: err } })
+        setErrors({ ...errors, getTechnos: { code: errStatus, message: errMessage, backReturn: err } })
         setErrorAlarm('getTechnos')
-        console.log(errors.getTehnos)
       })
   }
 
