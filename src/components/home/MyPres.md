@@ -16,10 +16,10 @@ J'y ai fait mes premiers pas en Laravel, pas évident à comprendre lorsque l'on
 
 Ma prochaine mission fût de développer une fonctionnalité dans le cadre d'un projet de recherche et développement, une foire aux questions, afin d'aider les clients de l'agence dans la résolution de problèmes techniques. Les technologies utilisées par ce projet m'étaient pour certaines inconnues, pour d'autres, en cours d'apprentissage à travers des tutoriels trouvés sur le Web. Cela m'a donc permis de me former au PHP, un langage très important en programmation, essentiellement utilisé dans le but de gérer le coté serveur des applications.<br  /><br  />
 
-Pour cette mission, la gestion des requêtes à la base de données et du serveur de l'application sont gérés par Laravel ( tiens comme on se retrouve ! )
+Pour cette mission, la gestion des requêtes à la base de données et du serveur de l'application sont gérés par Laravel ( tiens comme on se retrouve ! )<br  /><br  />
 Associé à InertiaJs pour la transition front/back de l'application, VueJs pour l'affichage dynamique des pages et également TailwindCss, un outil bien utile qui permet de gérer le CSS directement dans les composants.<br  /><br  />
 
-Autant de nouveaux outils et frameworks que j'ai dû apprendre à utiliser, à dompter, des heures de recherches à effectuer, de tutos pour se familiariser, mais c'est le quotidien des développeurs, il faut accepter de ne pas tout connaître, savoir demander de l'aide si l'on est coincé, et ce sont les leçons que j'aurais retenu de ces quelques mois enrichissants passés dans cette petite équipe bien sympathique et passionnées de devs de l'agence Bluesquare.
+Autant de nouveaux outils et frameworks que j'ai dû apprendre à utiliser, à dompter, des heures de recherches à effectuer, de tutos pour se familiariser, mais c'est le quotidien des développeurs, il faut accepter de ne pas tout connaître, savoir demander de l'aide si l'on est coincé, et ce sont les leçons que j'aurais retenu de ces quelques mois enrichissants passés dans cette petite équipe bien sympathique composée de devs passionnés de l'agence Bluesquare.
 
 ### A propos de moi
 Je suis quelqu'un de sérieux, rigoureux, organisé et quand je me lance dans un projet, rien ne m'arrête ! J'espère avoir l'occasion de travailler et d'apprendre à vos cotés.
