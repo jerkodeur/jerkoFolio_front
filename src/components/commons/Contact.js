@@ -6,7 +6,7 @@ import Cv from '../../images/icones/cv.png'
 import Github from '../../images/icones/github.png'
 import Linkedin from '../../images/icones/linkedin.png'
 import Mail from '../../images/icones/email.png'
-import myCv from '../../images/jeromePotie-dev-cv.pdf'
+import myCv from '../../images/Potié Jérôme - Développeur Web.pdf'
 
 const Contact = () => (
   <div className="cont-contact">
