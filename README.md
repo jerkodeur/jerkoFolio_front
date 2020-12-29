@@ -1,10 +1,10 @@
 # jerkoFolio_front
-* My portfolio (and full of projects inside !) --> front side !
+* My first portfolio (and full of projects inside !) --> front side !
 
 ![](https://github.com/jerkodeur/jerko-folio_front/blob/tweak-last-details/src/images/portfolio.png)
 
 ### Description
-Here is my portfolio, created for the forth checkpoint at the [Wild Code School](https://www.wildcodeschool.com/fr-FR).
+Here is my first portfolio, created for the forth checkpoint at the [Wild Code School](https://www.wildcodeschool.com/fr-FR).
 For do it, I used the following technologies: __HTML__, __CSS__, __Javascript__, __React.js__, __node.js__, __Mysql__, __Linux__.
 That takes me several days to do it, since least of 3 days...
 
